@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>TwachaAI · Selfie skin check & budget routine</title>
+  <meta name="description" content="A selfie skin check for Indian skin, powered by the YouCam Skin Analysis API. Get a report card and an AM/PM routine that fits your monthly budget." />
+  <meta name="theme-color" content="#16332e" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='30' fill='%23e8833a'/><text x='32' y='42' font-size='30' text-anchor='middle' fill='white' font-family='sans-serif'>त</text></svg>" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="TwachaAI home">
+      <span class="brand-mark" aria-hidden="true">त</span>
+      <span class="brand-name">Twacha<span>AI</span></span>
+    </a>
+    <div class="topbar-right">
+      <span id="modeBadge" class="badge" hidden></span>
+      <button id="langToggle" class="lang-toggle" type="button" aria-label="Switch language">हिंदी</button>
+    </div>
+  </header>
+
+  <main id="app">
+    <!-- ============ SCAN ============ -->
+    <section id="scanView" class="view">
+      <div class="hero">
+        <p class="eyebrow" data-i18n="eyebrow">Selfie skin check · made for Indian skin</p>
+        <h1 data-i18n="heroTitle">Know your skin in a minute. Get a routine that fits your wallet.</h1>
+        <p class="lede" data-i18n="heroLede">One selfie, eight skin concerns, a plain-language report card and an AM/PM routine from brands you can buy at the chemist.</p>
+      </div>
+
+      <form id="scanForm" class="card form-card" novalidate>
+        <div class="step">
+          <div class="step-head"><span class="step-num">1</span><h2 data-i18n="step1">Your selfie</h2></div>
+
+          <div id="dropzone" class="dropzone">
+            <img id="preview" alt="" hidden />
+            <video id="camera" playsinline muted hidden></video>
+            <div id="dropEmpty" class="drop-empty">
+              <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="20" r="9" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M8 42c2.5-8 9-12 16-12s13.5 4 16 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+              <p data-i18n="dropHint">Front-facing, no makeup, even light</p>
+            </div>
+            <div class="face-guide" aria-hidden="true"></div>
+          </div>
+
+          <div class="photo-actions">
+            <label class="btn btn-ghost" for="fileInput">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0-4 4m4-4 4 4M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span data-i18n="upload">Upload photo</span>
+            </label>
+            <input id="fileInput" type="file" accept="image/jpeg,image/png" capture="user" hidden />
+            <button id="cameraBtn" class="btn btn-ghost" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+              <span data-i18n="useCamera">Use camera</span>
+            </button>
+            <button id="snapBtn" class="btn btn-accent" type="button" hidden data-i18n="snap">Take photo</button>
+          </div>
+
+          <ul class="tips">
+            <li data-i18n="tip1">Face fills most of the frame</li>
+            <li data-i18n="tip2">Glasses off, hair off the forehead</li>
+            <li data-i18n="tip3">Face a window or soft light</li>
+          </ul>
+        </div>
+
+        <div class="step">
+          <div class="step-head"><span class="step-num">2</span><h2 data-i18n="step2">Monthly budget</h2></div>
+          <div class="chips" role="radiogroup" id="budgetChips">
+            <label class="chip"><input type="radio" name="budget" value="500" /><span>₹500</span></label>
+            <label class="chip"><input type="radio" name="budget" value="1500" checked /><span>₹1,500</span></label>
+            <label class="chip"><input type="radio" name="budget" value="3000" /><span>₹3,000</span></label>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-head"><span class="step-num">3</span><h2 data-i18n="step3">Your city's climate</h2></div>
+          <div class="chips chips-stack" role="radiogroup" id="climateChips">
+            <label class="chip"><input type="radio" name="climate" value="humid" checked /><span><b data-i18n="humid">Humid</b><small data-i18n="humidEg">Mumbai, Chennai, Kolkata</small></span></label>
+            <label class="chip"><input type="radio" name="climate" value="dry" /><span><b data-i18n="dry">Dry</b><small data-i18n="dryEg">Jaipur, Ahmedabad, Hyderabad</small></span></label>
+            <label class="chip"><input type="radio" name="climate" value="polluted" /><span><b data-i18n="polluted">Polluted metro</b><small data-i18n="pollutedEg">Delhi NCR, Kanpur, Lucknow</small></span></label>
+          </div>
+        </div>
+
+        <p id="formError" class="form-error" role="alert" hidden></p>
+        <button id="analyzeBtn" class="btn btn-primary btn-block" type="submit" disabled data-i18n="analyze">Check my skin</button>
+        <p class="fineprint" data-i18n="privacy">Your photo is sent securely to the YouCam API for analysis and is not stored by TwachaAI.</p>
+      </form>
+    </section>
+
+    <!-- ============ LOADING ============ -->
+    <section id="loadingView" class="view" hidden>
+      <div class="card loading-card">
+        <div class="scan-anim" aria-hidden="true"><img id="loadingImg" alt="" /><div class="scan-line"></div></div>
+        <ol class="progress-steps" id="progressSteps">
+          <li data-i18n="prog1">Preparing your photo</li>
+          <li data-i18n="prog2">Uploading securely to YouCam</li>
+          <li data-i18n="prog3">Analysing 8 skin concerns</li>
+          <li data-i18n="prog4">Building your routine</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ RESULTS ============ -->
+    <section id="resultView" class="view" hidden>
+      <div id="demoBanner" class="banner banner-demo" hidden>
+        <strong data-i18n="demoTitle">Demo data</strong>
+        <span data-i18n="demoBody">No YouCam API key is set on this server, so these scores are realistic samples, not a real analysis of your photo.</span>
+      </div>
+
+      <div class="card summary-card">
+        <div class="ring-wrap">
+          <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+            <circle cx="60" cy="60" r="52" class="ring-bg" />
+            <circle cx="60" cy="60" r="52" class="ring-fg" id="ringFg" />
+          </svg>
+          <div class="ring-label"><span id="overallScore">–</span><small data-i18n="overall">Skin score</small></div>
+        </div>
+        <div class="summary-meta">
+          <div class="meta-row"><span data-i18n="skinType">Skin type</span><b id="skinType">–</b></div>
+          <div class="meta-row" id="skinAgeRow"><span data-i18n="skinAge">Skin age (AI estimate)</span><b id="skinAge">–</b></div>
+          <div class="meta-row"><span data-i18n="topFocus">Top focus</span><b id="topFocus">–</b></div>
+        </div>
+      </div>
+
+      <div id="dermBanner" class="banner banner-warn" hidden>
+        <strong data-i18n="dermTitle">Consider a dermatologist</strong>
+        <span data-i18n="dermBody">Your acne score is low. If breakouts are painful, cystic or leave marks, a dermatologist can prescribe treatment that over-the-counter products can't.</span>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2 data-i18n="reportTitle">Your skin report card</h2>
+          <p class="sub" data-i18n="reportSub">Higher is healthier. Sorted by what needs care first.</p>
+        </div>
+        <ul id="reportList" class="report-list"></ul>
+        <div id="maskViewer" class="mask-viewer" hidden>
+          <img id="maskImg" alt="" />
+          <button id="maskClose" class="btn btn-ghost btn-sm" type="button" data-i18n="close">Close</button>
+        </div>
+      </div>
+
+      <div class="card" id="progressCard">
+        <div class="card-head">
+          <h2 data-i18n="progressTitle">4-week progress</h2>
+          <p class="sub" id="progressSub"></p>
+        </div>
+        <ul id="progressList" class="progress-list"></ul>
+        <div class="row-actions">
+          <button id="reminderBtn" class="btn btn-ghost btn-sm" type="button" data-i18n="addReminder">Add re-scan reminder</button>
+          <button id="clearHistoryBtn" class="btn btn-link btn-sm" type="button" data-i18n="clearHistory">Clear scan history</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2 data-i18n="routineTitle">Your routine</h2>
+          <div class="seg" role="tablist">
+            <button class="seg-btn active" data-tab="am" role="tab" type="button" data-i18n="morning">☀ Morning</button>
+            <button class="seg-btn" data-tab="pm" role="tab" type="button" data-i18n="night">☾ Night</button>
+          </div>
+        </div>
+        <ol id="routineList" class="routine-list"></ol>
+        <ul id="notesList" class="notes"></ul>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2 data-i18n="shopTitle">Shopping list</h2>
+          <p class="sub" id="priceNote"></p>
+        </div>
+        <div class="replan">
+          <div class="chips chips-sm" id="replanBudget">
+            <button type="button" class="chip-btn" data-budget="500">₹500</button>
+            <button type="button" class="chip-btn" data-budget="1500">₹1,500</button>
+            <button type="button" class="chip-btn" data-budget="3000">₹3,000</button>
+          </div>
+          <select id="replanClimate" aria-label="Climate">
+            <option value="humid" data-i18n="humid">Humid</option>
+            <option value="dry" data-i18n="dry">Dry</option>
+            <option value="polluted" data-i18n="polluted">Polluted metro</option>
+          </select>
+        </div>
+        <div class="budget-meter">
+          <div class="budget-bar"><div id="budgetFill"></div></div>
+          <p id="budgetText"></p>
+        </div>
+        <ul id="productList" class="product-list"></ul>
+        <div id="skippedBox" class="skipped" hidden>
+          <h3 data-i18n="laterTitle">Add later</h3>
+          <ul id="skippedList"></ul>
+        </div>
+      </div>
+
+      <button id="rescanBtn" class="btn btn-primary btn-block" type="button" data-i18n="newScan">New scan</button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="powered">
+      <span data-i18n="powered">Powered by YouCam Skin Analysis API</span>
+      <div id="actionsUsed" class="action-chips"></div>
+    </div>
+    <p id="disclaimer" class="disclaimer">TwachaAI is a cosmetic skin check, not medical advice. For painful, cystic or scarring acne, sudden rashes, or a changing mole, please see a dermatologist.</p>
+    <p class="fineprint">© 2026 Rida Kalam · MIT License</p>
+  </footer>
+
+  <canvas id="snapCanvas" hidden></canvas>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
