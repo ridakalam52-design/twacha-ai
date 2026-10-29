@@ -55,4 +55,4 @@
 
 ## Built with
 
-`python` · `fastapi` · `uvicorn` · `httpx` · `pillow` · `pytest` · `html` · `css` · `javascript` · `youcam-api` · `perfect-corp-skin-analysis` · `render`
+`python` · `fastapi` · `uvicorn` · `httpx` · `pillow` · `pytest` · `html` · `css` · `javascript` · `youcam-api` · `perfect-corp-skin-analysis`

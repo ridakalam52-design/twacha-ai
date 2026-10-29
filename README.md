@@ -1,5 +1,7 @@
 # TwachaAI · त्वचा AI
 
+**Demo video:** https://youtu.be/jACmf_ZxdpE · **Devpost:** https://devpost.com/software/twachaai
+
 **A selfie skin check for Indian users, powered by the YouCam Skin Analysis API.**
 Upload a selfie (or use the camera), pick a monthly budget (₹500 / ₹1,500 / ₹3,000) and your city's climate (humid / dry / polluted metro). TwachaAI scores 8 skin concerns, explains them in plain English or Hindi, builds a deterministic AM/PM routine, and fills it with real, widely sold Indian products that fit the budget. Re-scan in 4 weeks to see your progress.
 
