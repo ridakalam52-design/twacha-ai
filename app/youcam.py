@@ -21,8 +21,9 @@ from typing import Any, Callable
 import httpx
 
 DEFAULT_BASE_URL = "https://yce-api-01.makeupar.com"
-# The docs list a single generic File API endpoint for V2 (used by every AI feature).
-# Overridable in case an account is told to use a feature-specific path.
+# The docs list the generic File API endpoint for V2. The feature-specific
+# /s2s/v2.0/file/skin-analysis also answered 200 with the same shape in a live check
+# (Oct 2026); either works. Overridable via YOUCAM_FILE_PATH.
 DEFAULT_FILE_PATH = "/s2s/v2.0/file"
 TASK_PATH = "/s2s/v2.0/task/skin-analysis"
 
@@ -42,6 +43,8 @@ FRIENDLY_ERRORS = {
     "error_decode_image": "The photo couldn't be read. Please upload a JPG or PNG.",
     "error_nsfw_content_detected": "This photo can't be analysed. Please use a plain selfie.",
     "InvalidAccessToken": "The YouCam API key was rejected. Check YOUCAM_API_KEY on the server.",
+    # Seen live (Oct 2026) on a 401: {"error_code": "InvalidApiKey", "error": "This API key isn't recognized."}
+    "InvalidApiKey": "The YouCam API key was rejected. Check YOUCAM_API_KEY on the server.",
     "CreditInsufficiency": "The YouCam account is out of units for now. Try the demo mode instead.",
 }
 

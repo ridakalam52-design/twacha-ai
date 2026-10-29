@@ -168,3 +168,14 @@ def test_file_path_overridable(monkeypatch):
     c = YouCamClient(KEY, http=httpx.Client(transport=httpx.MockTransport(handler)))
     c.create_file(10)
     assert seen == [DEFAULT_BASE_URL + "/s2s/v2.0/file/skin-analysis"]
+
+
+def test_live_invalid_api_key_code():
+    # Exact 401 body seen from the live API in Oct 2026.
+    def handler(request):
+        return httpx.Response(401, json={"status": 401, "error": "This API key isn't recognized.", "error_code": "InvalidApiKey"})
+    client, _ = make_client(handler)
+    with pytest.raises(YouCamError) as e:
+        client.create_file(10)
+    assert e.value.code == "InvalidApiKey"
+    assert "rejected" in e.value.user_message

@@ -1,0 +1,133 @@
+{
+  "status": 200,
+  "data": {
+    "error": null,
+    "results": {
+      "output": [
+        {
+          "ui_score": 97,
+          "mask_urls": [
+            "https://yce-us.s3-accelerate.amazonaws.com/ttl30/518737966714063141/123677138152/v2/aeMNNB0KmUIP8rnQ996tC5Q/e852f8b3-2484-4d6a-b1b5-c145ef56fc08_hd_redness_output.jpg"
+          ],
+          "raw_score": 98.85391998291016,
+          "type": "hd_redness",
+          "url": null
+        },
+        {
+          "ui_score": 72,
+          "mask_urls": [
+            "https://yce-us.s3-accelerate.amazonaws.com/ttl30/518737966714063141/123677138152/v2/aeMNNB0KmUIP8rnQ996tC5Q/e852f8b3-2484-4d6a-b1b5-c145ef56fc08_hd_age_spot_output.jpg"
+          ],
+          "raw_score": 74.20995330810547,
+          "type": "hd_age_spot",
+          "url": null
+        },
+        {
+          "ui_score": 65,
+          "mask_urls": [
+            "https://yce-us.s3-accelerate.amazonaws.com/ttl30/518737966714063141/123677138152/v2/aeMNNB0KmUIP8rnQ996tC5Q/e852f8b3-2484-4d6a-b1b5-c145ef56fc08_hd_oiliness_output.jpg"
+          ],
+          "raw_score": 44.89929962158203,
+          "type": "hd_oiliness",
+          "url": null
+        },
+        {
+          "ui_score": 71,
+          "mask_urls": [
+            "https://yce-us.s3-accelerate.amazonaws.com/ttl30/518737966714063141/123677138152/v2/aeMNNB0KmUIP8rnQ996tC5Q/e852f8b3-2484-4d6a-b1b5-c145ef56fc08_hd_dark_circle_output.jpg"
+          ],
+          "raw_score": 65.9461498260498,
+          "type": "hd_dark_circle",
+          "url": null
+        },
+        {
+          "ui_score": 63,
+          "mask_urls": [
+            "https://yce-us.s3-accelerate.amazonaws.com/ttl30/518737966714063141/123677138152/v2/aeMNNB0KmUIP8rnQ996tC5Q/e852f8b3-2484-4d6a-b1b5-c145ef56fc08_hd_moisture_output.jpg"
+          ],
+          "raw_score": 31.121739745140076,
+          "type": "hd_moisture",
+          "url": null
+        },
+        {
+          "ui_score": 95,
+          "mask_urls": [
+            "https://yce-us.s3-accelerate.amazonaws.com/ttl30/518737966714063141/123677138152/v2/aeMNNB0KmUIP8rnQ996tC5Q/e852f8b3-2484-4d6a-b1b5-c145ef56fc08_hd_acne_output.jpg"
+          ],
+          "raw_score": 92.8104019165039,
+          "type": "hd_acne",
+          "region": "whole",
+          "url": null
+        },
+        {
+          "ui_score": 78,
+          "mask_urls": [
+            "https://yce-us.s3-accelerate.amazonaws.com/ttl30/518737966714063141/123677138152/v2/aeMNNB0KmUIP8rnQ996tC5Q/e852f8b3-2484-4d6a-b1b5-c145ef56fc08_hd_texture_output.jpg"
+          ],
+          "raw_score": 74.98039215686275,
+          "type": "hd_texture",
+          "region": "whole",
+          "url": null
+        },
+        {
+          "ui_score": 63,
+          "mask_urls": [
+            "https://yce-us.s3-accelerate.amazonaws.com/ttl30/518737966714063141/123677138152/v2/aeMNNB0KmUIP8rnQ996tC5Q/e852f8b3-2484-4d6a-b1b5-c145ef56fc08_hd_pore_output_forehead.jpg"
+          ],
+          "raw_score": 40.227073669433594,
+          "type": "hd_pore",
+          "region": "forehead",
+          "url": null
+        },
+        {
+          "ui_score": 71,
+          "mask_urls": [
+            "https://yce-us.s3-accelerate.amazonaws.com/ttl30/518737966714063141/123677138152/v2/aeMNNB0KmUIP8rnQ996tC5Q/e852f8b3-2484-4d6a-b1b5-c145ef56fc08_hd_pore_output_nose.jpg"
+          ],
+          "raw_score": 57.809288024902344,
+          "type": "hd_pore",
+          "region": "nose",
+          "url": null
+        },
+        {
+          "ui_score": 70,
+          "mask_urls": [
+            "https://yce-us.s3-accelerate.amazonaws.com/ttl30/518737966714063141/123677138152/v2/aeMNNB0KmUIP8rnQ996tC5Q/e852f8b3-2484-4d6a-b1b5-c145ef56fc08_hd_pore_output_cheek.jpg"
+          ],
+          "raw_score": 56.25673294067383,
+          "type": "hd_pore",
+          "region": "cheek",
+          "url": null
+        },
+        {
+          "ui_score": 69,
+          "mask_urls": [
+            "https://yce-us.s3-accelerate.amazonaws.com/ttl30/518737966714063141/123677138152/v2/aeMNNB0KmUIP8rnQ996tC5Q/e852f8b3-2484-4d6a-b1b5-c145ef56fc08_hd_pore_output_all.jpg"
+          ],
+          "raw_score": 52.63745880126953,
+          "type": "hd_pore",
+          "region": "whole",
+          "url": null
+        },
+        {
+          "score": 76.25,
+          "type": "all",
+          "url": null
+        },
+        {
+          "score": 64,
+          "type": "skin_age",
+          "url": null
+        },
+        {
+          "mask_urls": [
+            "https://yce-us.s3-accelerate.amazonaws.com/ttl30/518737966714063141/123677138152/v2/aeMNNB0KmUIP8rnQ996tC5Q/e852f8b3-2484-4d6a-b1b5-c145ef56fc08_resize_image.jpg"
+          ],
+          "type": "resize_image",
+          "url": null
+        }
+      ]
+    },
+    "task_status": "success"
+  }
+}
