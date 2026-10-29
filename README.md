@@ -16,6 +16,18 @@ Upload a selfie (or use the camera), pick a monthly budget (₹500 / ₹1,500 / 
 - **Hindi toggle** across the whole UI and all explanations.
 - **Demo mode** when no API key is set, clearly labelled "Demo data", built on a real captured YouCam response.
 
+## Screenshots
+
+Captured from a real live YouCam Skin Analysis run (HD, 29 Oct 2026) on a NASA public-domain portrait.
+
+| Landing | Upload | Report card |
+|---|---|---|
+| <img src="docs/screenshots/01-landing.png" width="240" alt="TwachaAI landing page"> | <img src="docs/screenshots/02-upload.png" width="240" alt="Selfie uploaded, budget and climate options"> | <img src="docs/screenshots/03-report-card.png" width="240" alt="Skin score 76 and report card with YouCam scores"> |
+
+| Overlay | Routine & ₹ budget |
+|---|---|
+| <img src="docs/screenshots/04-overlay.png" width="240" alt="YouCam hydration mask overlay"> | <img src="docs/screenshots/05-routine-budget.png" width="240" alt="Shopping list with monthly ₹ budget meter"> |
+
 ## Quick start
 
 ```bash
